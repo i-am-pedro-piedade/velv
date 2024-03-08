@@ -2,7 +2,7 @@
 
 ## To run the project
 
-Open PHPSandbox: https://phpsandbox.io/n/indigo-owen-lars-x3w4c
+Open PHPSandbox: [go]([http://stackoverflow.com](https://phpsandbox.io/n/indigo-owen-lars-x3w4c)){:target="_blank"}
 
 This will start a server.
 
