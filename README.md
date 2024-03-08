@@ -8,7 +8,9 @@ https://phpsandbox.io/n/indigo-owen-lars-x3w4c
 
 This will start a PHPSandbox server.
 
-The project can be viewed in the preview window or on this URL for a larger browser window: https://x3w4c.ciroue.com/
+The page can be viewed in the preview window on that page.
+
+For a better user experience please view the page on a new browser window by clicking the button on the top right of the preview window or clicking this URL: https://x3w4c.ciroue.com/
 
 ## Note
 The server only runs when it is in use and it will shutdown after being idle for a few minutes.
