@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Dashboard">
+        <meta name="generator" content="Symfony">
+        <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('build/dashboard/images/apple-touch-icon.png') }}">
+        <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('build/dashboard/images/favicon-32x32.png') }}">
+        <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('build/dashboard/images/favicon-16x16.png') }}">
+        <title>{% block title %}Servers{% endblock %}</title>
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('dashboard', null, 'dashboardConfig') }}
+        {% endblock %}
+    </head>
+    <body class="body">
+        <main id="app">
+            <div v-cloak>
+                {% block body %}{% endblock %}
+            </div>
+        </main>
+        {% block javascripts %}
+            {{ encore_entry_script_tags('dashboard', null, 'dashboardConfig') }}
+        {% endblock %}
+    </body>
+</html>

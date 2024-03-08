@@ -1,0 +1,12 @@
+{% extends 'dashboard/base.html.twig' %}
+
+{% block title %}
+    Servers
+{% endblock %}
+
+{% block body %}
+    <dashboard
+            route="{{ route }}"
+            api-base-url="{{ apiBaseUrl }}"
+    ></dashboard>
+{% endblock %}
