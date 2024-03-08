@@ -6,7 +6,7 @@ Right click this link and open it in a new browser tab:
 
 https://phpsandbox.io/n/indigo-owen-lars-x3w4c
 
-This will start a PHPSandbox server.
+This will start a PHPSandbox server with the code from this repository.
 
 The page can be viewed in the preview window on that page.
 
