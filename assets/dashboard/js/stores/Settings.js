@@ -5,7 +5,7 @@ export const useSettingsStore = defineStore({
     id: 'settings',
     state: () => ({
         apiBaseUrl: '',
-        settings: useStorage('settings', {'theme': 'dark'}),
+        settings: useStorage('settings', {'theme': 'light'}),
         toast: {
             title: '',
             text: '',

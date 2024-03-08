@@ -1,9 +1,9 @@
 <template>
   <v-container fluid>
     <v-layout class="rounded rounded-md">
-      <navigation-drawer/>
       <v-main class="d-flex w-100">
-        <app-bar/>
+        <navigation-drawer/>
+        <app-bar />
         <v-container class="pa-6">
           <router-view />
         </v-container>
@@ -31,6 +31,7 @@ export default {
   data() {
     return {
       settingsStore: useSettingsStore(),
+      drawer: null,
     }
   },
   mounted() {
