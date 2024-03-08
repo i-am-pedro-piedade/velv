@@ -3,10 +3,6 @@
     <v-expansion-panel>
       <v-expansion-panel-title disable-icon-rotate :color="filterPanelColor">
         Filters
-        <template v-slot:actions>
-          <v-icon icon="fa-solid fa-filter">
-          </v-icon>
-        </template>
       </v-expansion-panel-title>
       <v-expansion-panel-text>
         <servers-filters />
@@ -37,6 +33,9 @@ export default {
     filterPanelColor() {
       return this.serversStore.isFiltered ? 'blue-lighten-5' : ''
     },
+  },
+  mounted() {
+    this.filtersStore.load()
   },
 }
 </script>

@@ -7,21 +7,14 @@ export const useServersFiltersStore = defineStore({
     id: 'serversFilters',
     state: () => ({
         ...useBaseDataStore.state(),
-        location: useStorage('location', []),
-        storage: useStorage('storage', {}),
-        storageType: useStorage('storageType', []),
-        ram: useStorage('ram', []),
+        location: [],
+        storage: {},
+        storageType: [],
+        ram: [],
         loaded: false
     }),
     getters: {
         ...useBaseDataStore.getters,
-        getStorageLabel(index) {
-            console.log(index)
-        },
-        storageLabel: (state) => {
-            console.log(state.storage)
-            return 1
-        },
     },
     actions: {
         ...useBaseDataStore.actions,

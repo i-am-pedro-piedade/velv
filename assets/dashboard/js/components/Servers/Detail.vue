@@ -1,10 +1,9 @@
 <template>
   <v-dialog max-width="800">
     <template v-slot:activator="{ props: activatorProps }">
-      <v-btn v-bind="activatorProps" size="small">
-        <v-icon icon="fa-regular fa-eye">
-        </v-icon>
-      </v-btn>
+      <a v-bind="activatorProps" role="button" href="" @click.prevent>
+        {{ server.model }}
+      </a>
     </template>
     <template v-slot:default="{ isActive }">
       <v-card elevation="16">
@@ -12,15 +11,15 @@
           <h3 class="border-b pb-2 mb-4">{{ server.model }}</h3>
         </template>
         <template v-slot:text>
-          <v-chip class="pa-5 me-4" variant="outlined">
+          <v-chip class="pa-5 me-4 mb-4" variant="outlined">
             <v-icon icon="fa-regular fa-hard-drive" start class="me-3"></v-icon>
             {{ server.storage }}
           </v-chip>
-          <v-chip class="pa-5 me-4" variant="outlined">
+          <v-chip class="pa-5 me-4 mb-4" variant="outlined">
             <v-icon icon="fa-solid fa-microchip" start class="me-3"></v-icon>
             {{ server.ram }}
           </v-chip>
-          <v-chip class="pa-5 me-4" variant="outlined">
+          <v-chip class="pa-5 me-4 mb-4" variant="outlined">
             <v-icon icon="fa-solid fa-map-location-dot" start class="me-3"></v-icon>
             {{ server.location }}
           </v-chip>
@@ -32,7 +31,7 @@
         <template v-slot:actions>
           <v-btn
               class="ms-auto"
-              text="Ok"
+              text="OK"
               @click="isActive.value = false"
           ></v-btn>
         </template>

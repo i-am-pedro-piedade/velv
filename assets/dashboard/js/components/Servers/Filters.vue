@@ -93,8 +93,5 @@ export default {
       }
     }
   },
-  created() {
-    this.filtersStore.load()
-  },
 }
 </script>
