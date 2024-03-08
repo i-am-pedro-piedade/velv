@@ -34,7 +34,7 @@ class XlsFileLoader
      */
     private function loadFile(): array
     {
-        $file = $this->appKernel->getProjectDir() . '/var/data/servers.xlsx';
+        $file = $this->appKernel->getProjectDir() . '/fixtures/servers.xlsx';
         $xls = SimpleXLSX::parse($file);
         if($xls === false) {
             throw new \Exception('Could not read data from XLS');
