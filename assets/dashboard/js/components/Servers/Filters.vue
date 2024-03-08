@@ -37,15 +37,22 @@
         </v-col>
       </v-row>
       <v-row>
-        <v-col cols="12">
+        <v-col cols="1">
           RAM
         </v-col>
-        <v-col cols="1" v-for="option in filtersStore.ram">
-          <v-checkbox
+        <v-col cols="11">
+          <v-btn-toggle
               v-model="serversStore.filters.ram"
-              :label="option"
-              :value="option"
-          ></v-checkbox>
+              background-color="primary"
+              rounded="0"
+              multiple
+          >
+            <template v-for="option in filtersStore.ram">
+              <v-btn :value="option">
+                {{ option }}
+              </v-btn>
+            </template>
+          </v-btn-toggle>
         </v-col>
       </v-row>
       <v-row>
