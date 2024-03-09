@@ -13,8 +13,8 @@ The page can be viewed in the preview window on that page but for a better user 
 ## Tests
 Open a Terminal on the project by clickin the + sign below the preview panel.
 Run:
-$ vendor/bin/phpunit
-$ vendor/bin/phpstan
+`$ vendor/bin/phpunit`
+`$ vendor/bin/phpstan`
 
 ## Note
 The server only runs when it is in use and it will shutdown after being idle for a few minutes.
