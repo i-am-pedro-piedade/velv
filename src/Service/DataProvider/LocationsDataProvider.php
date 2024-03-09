@@ -1,7 +1,9 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Service\DataProvider;
+
 use App\Collection\LocationCollection;
 use DateInterval;
 use Symfony\Contracts\Cache\ItemInterface;
@@ -34,5 +36,4 @@ class LocationsDataProvider extends AbstractDataProvider implements DataProvider
         }
         return $locations;
     }
-
 }

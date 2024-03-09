@@ -1,7 +1,9 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Service\DataProvider;
+
 use App\Collection\ServerCollection;
 use App\Model\Server;
 use DateInterval;
@@ -42,5 +44,4 @@ class ServersDataProvider extends AbstractDataProvider implements DataProviderIn
         }
         return $servers;
     }
-
 }

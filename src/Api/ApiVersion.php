@@ -8,5 +8,4 @@ abstract class ApiVersion
 {
     public const V1 = '/api/v1';
     public const CURRENT_VERSION = self::V1;
-
 }

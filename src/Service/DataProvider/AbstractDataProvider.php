@@ -1,21 +1,25 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Service\DataProvider;
+
 use App\Collection\CollectionInterface;
 use App\Service\XlsFileLoader;
 use Symfony\Contracts\Cache\TagAwareCacheInterface;
 
 abstract class AbstractDataProvider implements DataProviderInterface
 {
-    protected ?array $xlsData;
+    /**
+     * @var array<int,string>
+     */
+    protected array $xlsData;
     protected string $cacheKey = 'provider.data';
 
     public function __construct(
         protected readonly TagAwareCacheInterface $cache,
         XlsFileLoader $loader,
-    )
-    {
+    ) {
         $this->xlsData = $loader->load();
     }
 

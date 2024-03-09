@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Dto;
@@ -17,7 +18,9 @@ class ServerDataResponse
 
     public function __construct(Pagerfanta $pagerfanta)
     {
-        $this->setItems($pagerfanta->getCurrentPageResults());
+        /** @var Server[] $currentPage */
+        $currentPage = $pagerfanta->getCurrentPageResults();
+        $this->setItems($currentPage);
         $this->setPagination(new Pagination($pagerfanta));
     }
 
@@ -49,7 +52,4 @@ class ServerDataResponse
         $this->pagination = $pagination;
         return $this;
     }
-
-
-
 }

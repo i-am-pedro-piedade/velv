@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Controller\Api;
@@ -33,12 +34,11 @@ class ServersController extends AbstractApiController
     public function index(
         ServersDataProvider $dataProvider,
         #[MapQueryString] ?ServerDataRequest $serverDataRequest,
-    ): Response
-    {
+    ): Response {
         $serversCollection = $dataProvider->getCollection();
         $pagerfanta = new Pagerfanta(new ArrayAdapter($serversCollection->getFiltered($serverDataRequest?->getFilters())));
         $pagerfanta->setMaxPerPage($serverDataRequest?->getLimit() ?: 10);
-        $pagerfanta->setCurrentPage($serverDataRequest?->getPage()?: 1);
+        $pagerfanta->setCurrentPage($serverDataRequest?->getPage() ?: 1);
         return JsonResponse::fromJsonString($this->serializer->serialize(new ServerDataResponse($pagerfanta), 'json'));
     }
 }

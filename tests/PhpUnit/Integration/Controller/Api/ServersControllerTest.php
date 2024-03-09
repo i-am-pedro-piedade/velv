@@ -11,11 +11,13 @@ class ServersControllerTest extends ApiTestCase
 {
     private string $endpoint = ApiVersion::CURRENT_VERSION . '/servers';
 
-    public function testServersResponseHasExpectedProperties()
+    public function testServersResponseHasExpectedProperties(): void
     {
-        $this->client->request('GET', $this->endpoint);
+        $this->client?->request('GET', $this->endpoint);
         $this->assertResponseIsSuccessful();
-        $serversResponse = json_decode($this->client->getResponse()->getContent(), true);
+        $responseData = $this->client?->getResponse()->getContent();
+        $this->assertIsString($responseData);
+        $serversResponse = json_decode($responseData, true);
         $this->assertArrayHasKey('items', $serversResponse);
         $this->assertIsArray($serversResponse['items']);
         $this->assertArrayHasKey('pagination', $serversResponse);
@@ -27,10 +29,12 @@ class ServersControllerTest extends ApiTestCase
     }
 
     #[Depends('testServersResponseHasExpectedProperties')]
-    public function testServersResponseItemHasExpectedProperties()
+    public function testServersResponseItemHasExpectedProperties(): void
     {
-        $this->client->request('GET', $this->endpoint);
-        $serversResponse = json_decode($this->client->getResponse()->getContent(), true);
+        $this->client?->request('GET', $this->endpoint);
+        $responseData = $this->client?->getResponse()->getContent();
+        $this->assertIsString($responseData);
+        $serversResponse = json_decode($responseData, true);
         $server = reset($serversResponse['items']);
         $this->assertArrayHasKey('model', $server);
         $this->assertArrayHasKey('storage', $server);
@@ -44,13 +48,17 @@ class ServersControllerTest extends ApiTestCase
     }
 
     #[Depends('testServersResponseItemHasExpectedProperties')]
-    public function testFilteredServersResponseHasExpectedResults()
+    public function testFilteredServersResponseHasExpectedResults(): void
     {
         $filters = (new ServerDataRequest())->setFilters(
             (new ServerFilters())->setRam(['16GB'])->setLocation('AmsterdamAMS-01')->setStorageType('SATA2')->setStorage([0, 4096])
         );
-        $this->client->request('GET', $this->endpoint, $this->serializer->normalize($filters));
-        $serversResponse = json_decode($this->client->getResponse()->getContent(), true);
+        /** @var array<string|int|array<int>> $query */
+        $query = $this->serializer?->normalize($filters);
+        $this->client?->request('GET', $this->endpoint, $query);
+        $responseData = $this->client?->getResponse()->getContent();
+        $this->assertIsString($responseData);
+        $serversResponse = json_decode($responseData, true);
         foreach ($serversResponse['items'] as $server) {
             $this->assertEquals('AmsterdamAMS-01', $server['location']);
             $this->assertEquals('SATA2', $server['storageType']);
@@ -59,5 +67,4 @@ class ServersControllerTest extends ApiTestCase
             $this->assertEquals('16GB', $server['ramValue']);
         }
     }
-
 }

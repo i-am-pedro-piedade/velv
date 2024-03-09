@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Dto;
@@ -9,7 +10,7 @@ class ServerFilters
     protected string $storageType = '';
 
     /**
-     * @var array<string>
+     * @var int[]
      */
     protected array $storage = [];
     /**
@@ -39,28 +40,39 @@ class ServerFilters
         return $this;
     }
 
+    /**
+     * @return int[]
+     */
     public function getStorage(): array
     {
         return $this->storage;
     }
 
+    /**
+     * @param int[] $storage
+     * @return $this
+     */
     public function setStorage(array $storage): self
     {
         $this->storage = $storage;
         return $this;
     }
 
+    /**
+     * @return string[]
+     */
     public function getRam(): array
     {
         return $this->ram;
     }
 
+    /**
+     * @param string[] $ram
+     * @return $this
+     */
     public function setRam(array $ram): self
     {
         $this->ram = $ram;
         return $this;
     }
-
-
-
 }

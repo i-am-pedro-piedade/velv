@@ -40,7 +40,9 @@ class DataProviderTestCase extends UnitTestCase
                     '$431.99',
                 ],
         ]);
-        $this->cache = static::getContainer()->get(TagAwareCacheInterface::class);
+        /** @var TagAwareCacheInterface $cache */
+        $cache = static::getContainer()->get(TagAwareCacheInterface::class);
+        $this->cache = $cache;
     }
 
     protected function tearDown(): void
@@ -48,5 +50,4 @@ class DataProviderTestCase extends UnitTestCase
         parent::tearDown();
         $this->dataProvider->clearCache();
     }
-
 }

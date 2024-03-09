@@ -90,7 +90,4 @@ class Pagination
         $this->itemsPerPage = $itemsPerPage;
         return $this;
     }
-
-
-
 }

@@ -39,7 +39,7 @@ class ServerCollection implements CollectionInterface
         if ($servers->isEmpty()) {
             return [];
         }
-        if($filters !== null) {
+        if ($filters !== null) {
             $servers = $this->filterByLocation($servers, $filters->getLocation());
             if ($servers->isEmpty()) {
                 return [];
@@ -66,7 +66,7 @@ class ServerCollection implements CollectionInterface
      */
     public function filterByLocation(Collection $servers, string $location): Collection
     {
-        return $location === '' ? $servers : $servers->filter(static function(Server $server) use ($location) {
+        return $location === '' ? $servers : $servers->filter(static function (Server $server) use ($location) {
                return $server->getLocation() === $location;
         });
     }
@@ -77,29 +77,31 @@ class ServerCollection implements CollectionInterface
      */
     public function filterByStorageType(Collection $servers, string $storageType): Collection
     {
-        return $storageType === '' ? $servers : $servers->filter(static function(Server $server) use ($storageType) {
+        return $storageType === '' ? $servers : $servers->filter(static function (Server $server) use ($storageType) {
                return str_starts_with($server->getStorageType(), $storageType);
         });
     }
 
     /**
-     * @param Collection<Server> $servers
-     * @return Collection<Server>
+     * @param Collection $servers
+     * @param int[] $storageValue
+     * @return Collection
      */
     public function filterByStorageValue(Collection $servers, array $storageValue): Collection
     {
-        return count($storageValue) !== 2 ? $servers : $servers->filter(static function(Server $server) use ($storageValue) {
+        return count($storageValue) !== 2 ? $servers : $servers->filter(static function (Server $server) use ($storageValue) {
             return $server->getStorageValue() >= $storageValue[0] && $server->getStorageValue() <= $storageValue[1];
         });
     }
 
     /**
-     * @param Collection<Server> $servers
-     * @return Collection<Server>
+     * @param Collection $servers
+     * @param string[] $ram
+     * @return Collection
      */
     public function filterByRam(Collection $servers, array $ram): Collection
     {
-        return (count($ram) === 0) ? $servers : $servers->filter(static function(Server $server) use ($ram) {
+        return (count($ram) === 0) ? $servers : $servers->filter(static function (Server $server) use ($ram) {
             return in_array($server->getRamValue(), $ram);
         });
     }
@@ -109,5 +111,4 @@ class ServerCollection implements CollectionInterface
         $this->servers->add($server);
         return $this;
     }
-
 }

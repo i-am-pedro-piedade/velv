@@ -19,6 +19,9 @@ class LocationCollection implements CollectionInterface
         $this->locations = new ArrayCollection();
     }
 
+    /**
+     * @return Collection<string>
+     */
     public function get(): Collection
     {
         return $this->locations;
@@ -26,7 +29,7 @@ class LocationCollection implements CollectionInterface
 
     public function addLocation(string $location): self
     {
-        if($this->locations->contains($location) === false) {
+        if ($this->locations->contains($location) === false) {
             $this->locations->add($location);
         }
         return $this;

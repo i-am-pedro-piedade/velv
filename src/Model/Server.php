@@ -58,6 +58,10 @@ class Server
         return $this->storageValue;
     }
 
+    /**
+     * @param array<int|string> $storageValue
+     * @return $this
+     */
     public function setStorageValue(array $storageValue): self
     {
         $this->storageValue = (int)$storageValue[1] * (int)$storageValue[2] * ($storageValue[3] === 'G' ? 1 : 1024);

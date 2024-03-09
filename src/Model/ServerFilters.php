@@ -6,14 +6,26 @@ namespace App\Model;
 
 class ServerFilters
 {
+    /**
+     * @var Storage[]
+     */
     protected array $storage;
+    /**
+     * @var string[]
+     */
     protected array $storageType;
+    /**
+     * @var string[]
+     */
     protected array $ram;
+    /**
+     * @var string[]
+     */
     protected array $location;
 
     /**
      * @param array<string> $location
-     * @param array<int, string>|null $storage
+     * @param Storage[]|null $storage
      * @param array<string>|null $storageType
      * @param array<string>|null $ram
      */
@@ -38,48 +50,75 @@ class ServerFilters
         $this->ram = $ram ?? ['2GB', '4GB', '8GB', '12GB', '16GB', '24GB', '32GB', '48GB', '64GB', '96GB'];
     }
 
+    /**
+     * @return Storage[]
+     */
     public function getStorage(): array
     {
         return $this->storage;
     }
 
+    /**
+     * @param Storage[] $storage
+     * @return $this
+     */
     public function setStorage(array $storage): self
     {
         $this->storage = $storage;
         return $this;
     }
 
+    /**
+     * @return string[]
+     */
     public function getStorageType(): array
     {
         return $this->storageType;
     }
 
+    /**
+     * @param string[] $storageType
+     * @return $this
+     */
     public function setStorageType(array $storageType): self
     {
         $this->storageType = $storageType;
         return $this;
     }
 
+    /**
+     * @return string[]
+     */
     public function getRam(): array
     {
         return $this->ram;
     }
 
+    /**
+     * @param string[] $ram
+     * @return $this
+     */
     public function setRam(array $ram): self
     {
         $this->ram = $ram;
         return $this;
     }
 
+    /**
+     * @return string[]
+     */
     public function getLocation(): array
     {
         return $this->location;
     }
 
+    /**
+     * @param string[] $location
+     * @return $this
+     */
     public function setLocation(array $location): self
     {
         $this->location = $location;
         return $this;
     }
-
 }

@@ -40,6 +40,4 @@ class Storage
         $this->label = $label;
         return $this;
     }
-
-
 }
