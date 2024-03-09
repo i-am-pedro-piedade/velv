@@ -12,7 +12,6 @@ The page can be viewed in the preview window on that page but for a better user 
 
 ## Tests
 Open a Terminal on the project by clickin the + sign below the preview panel.
-Run:
 * Run ```$ vendor/bin/phpunit```
 * Run ```$ vendor/bin/phpstan```
 
